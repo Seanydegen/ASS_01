@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+}
+
+nav{
+    width: 100%;
+    float: left;
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav li{
+    display: inline-block;
+}
+
+.menu{
+    margin: 0;
+    padding: 8px;
+    height: 21px;
+    background-color: rgb(49, 46, 46);
+}
+
+.button{
+    font-family: sans-serif;
+    font-size: medium;
+    font-style: none;
+    color: white;
+    text-decoration: none;
+
+}
+.button:hover{
+    background-color: lightgrey;
+}
