@@ -22,10 +22,14 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
                 </ul>
                 </nav>
         </header>
+        
+        <!-- This is where the main content for your webpages are going to be-->
 
-        <footer>
-            <?php echo "Date:". date("d-m-y")."<br>" ?>
-        </footer>
+        <div class="fixed__footer">
+            <?php 
+            echo "Date:". date(" d-m-y")."<br>"
+            ?><!-- PHP function for date is used here -->
+        </div>
     </body>
 </html>
 

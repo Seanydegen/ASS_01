@@ -42,7 +42,10 @@ header {
     padding: 0px 10px;
 }
 
-footer{
+/*Edit Style in class fixed__footer where PHP function for date is used */
+.fixed__footer {
+    position: absolute;
+    right: 10%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;

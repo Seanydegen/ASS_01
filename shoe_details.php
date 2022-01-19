@@ -11,7 +11,7 @@
     <body>
         <header>
             <img class="logo" src ="source/images/nav_logo.png" alt="logo">
-                <nav> <!--Nav Bar-->
+                <nav><!--Nav Bar-->
                 <ul class ="nav__links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">View Listings</a></li>
@@ -20,6 +20,14 @@
                 </ul>
                 </nav>
         </header>
+
+
+
+        
+        <div class="fixed__footer">
+            <?php 
+            echo "Date:". date(" d-m-y")."<br>"
+            ?><!-- PHP function for date is used here -->
+        </div>
     </body>
-    
 </html>
