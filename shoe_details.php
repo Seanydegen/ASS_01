@@ -1,5 +1,3 @@
-<!--Please note that this is just a template for the Navigation Bar and Logo. Please make another copy of this file and rename it. 
-Then, add the following HTML & PHP codes wherever you see fit. :) -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +11,7 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
     <body>
         <header>
             <img class="logo" src ="source/images/nav_logo.png" alt="logo">
-                <nav><!--Nav Bar-->
+                <nav> <!--Nav Bar-->
                 <ul class ="nav__links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">View Listings</a></li>
@@ -22,11 +20,6 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
                 </ul>
                 </nav>
         </header>
-
-        <footer>
-            <?php echo "Date:". date("d-m-y")."<br>" ?>
-        </footer>
     </body>
+    
 </html>
-
-
