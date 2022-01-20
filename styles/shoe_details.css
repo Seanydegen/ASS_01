@@ -56,6 +56,7 @@ header {
 
 /*Individual Style Sheet Here*/
 .shoe_details {
+    box-sizing: border-box;
     padding: 30px 10%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -63,17 +64,28 @@ header {
     color: #30475E;
 }
 
-.shoe_details .col-2 img {
-    padding: 0;
-    width: 500px;
-    height: 500px;
+#photoArray {
+    justify-content: space-between;
+    position: absolute;
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-areas: 
+        "shoe_1 shoe_2"
+        "shoe_3 shoe_4";
 }
+/*#productdetails {
+    position:absolute;
+    float: right;
+    right: 200px;
+    width: 40%;
+}*/
 
 .shoe_details .col-2 {
-    float: left;
+    position: relative;
     justify-content: left;
-    padding: 20px;
-    
+    padding: 20px 4px;
+    float: right;
+    width: 40%;
 }
 
 .shoe_details .col-2 h4 {
@@ -83,9 +95,20 @@ header {
 .shoe_details .col-2 .btn {
     background-color:#30475E;
     color: #F5F5F5;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    left: 150px;
 }
 
 .shoe_details .col-2 .btn:hover {
     background-color:#F05454;
+}
+.interest_count {
+    position: relative;
+    left: 50px;
+    top: 20px;
 }
 
