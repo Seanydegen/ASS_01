@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Shoes Fever</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><!--Please remember to change style sheet for each page-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Please remember to change style sheet for each page-->
         <link rel= "stylesheet" href="styles/index_template.css" type="text/css"/> 
     </head>
     <body>
