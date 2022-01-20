@@ -55,3 +55,37 @@ header {
 }
 
 /*Individual Style Sheet Here*/
+.shoe_details {
+    padding: 30px 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #30475E;
+}
+
+.shoe_details .col-2 img {
+    padding: 0;
+    width: 500px;
+    height: 500px;
+}
+
+.shoe_details .col-2 {
+    float: left;
+    justify-content: left;
+    padding: 20px;
+    
+}
+
+.shoe_details .col-2 h4 {
+    margin: 2px 0;
+}
+
+.shoe_details .col-2 .btn {
+    background-color:#30475E;
+    color: #F5F5F5;
+}
+
+.shoe_details .col-2 .btn:hover {
+    background-color:#F05454;
+}
+

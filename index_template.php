@@ -28,9 +28,10 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 
         <!----------------footer---------------------->
         <div class="fixed__footer">
+            <!-- PHP function for date is used here -->
             <?php 
             echo "Date:". date(" d-m-y")."<br>"
-            ?><!-- PHP function for date is used here -->
+            ?>
         </div>
     </body>
 </html>
