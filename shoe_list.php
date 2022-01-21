@@ -6,7 +6,7 @@
         <title>Shoes Fever</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1"><!--Please remember to change style sheet for each page-->
-        <link rel= "stylesheet" href="styles/shoes_list.css" type="text/css"/> 
+        <link rel= "stylesheet" href="styles/shoe_list.css" type="text/css"/> 
     </head>
     <body>
         <header>
