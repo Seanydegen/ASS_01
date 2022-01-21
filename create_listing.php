@@ -42,7 +42,7 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 			<p>First Name: <input type="text" name="fName" /></p>
 			<p>Last Name: <input type="text" name="lName" /></p>
 			<p>Contact Number: <input type="text" name="contactNum" /></p>
-			<p>Email: <input type="text" name="email" /></p>
+			<p>Email: <input type="email" name="email" /></p>
 		<header class="head">
 			<p class="piAndsi"> Shoe Information </p>
 		</header>

@@ -1,0 +1,89 @@
+/*This is also a copy of the template. Please make a copy of this file and create a new CSS using this template for each your different pages. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/*Edit Style ALL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+}
+
+/*Edit Style within the List and Anchor Tag in the Navigation Bar */
+li,a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #30475E;
+    text-decoration: none;
+}
+
+/*Edit Style in all of HEADER which is the Navigation Bar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    cursor:pointer;
+}
+
+/*Edit Style in class nav_links which is the Navigation Bar */
+.nav__links{
+    list-style: none;
+}
+.nav__links :hover {
+    color: #F05454;
+}
+.nav__links li {
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+/*Edit Style in class fixed__footer where PHP function for date is used */
+.fixed__footer {
+    position: fixed;
+    bottom: 0px;
+    right: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #121212;
+    text-decoration: none;
+}
+
+/*Individual Style Sheet Here*/
+
+.expressInterest {
+    font-family: 'Montserrat', sans-serif;
+	margin: auto;
+	border: 3px solid grey;
+	padding: 30px;
+	width: 500px;
+    clear: both;
+}
+
+input {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+
+h1 {
+	font-weight: bold;
+	padding-bottom: 20px;
+}
+
+p {
+	margin-left: 20px;
+}
+
+
+
+.expressInterest p {
+  width: 100%;
+  clear: both;
+  padding-bottom: 15px;
+}
