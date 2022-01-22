@@ -87,3 +87,27 @@ header {
     border: 1px solid black;
     height: 50px;
 }
+
+.product_number_input {
+    position: fixed;
+    bottom: 50px;
+    justify-content: bottom;
+    float: bottom;
+    right: 50%;
+    width: 30%;
+}
+
+.product_number_input p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #30475E;
+}
+
+.product_number_input input {
+    border: 1px solid black;
+    border-color: #F05454;
+    border-radius: 5px;
+    width: 225px;
+    height: 40px;
+}
