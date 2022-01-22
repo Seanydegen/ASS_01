@@ -138,7 +138,7 @@
                         }
 
                         print_r(search($product,'21-01-22-abc'));
-
+                        //print_r($matches);
                         /*Code to Read from Txt.File will be here*/
                         /*Add product variable here*/
                         /*echo "<h2>Product Name: ". $productname ."</h2><br>";
