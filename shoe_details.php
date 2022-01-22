@@ -1,3 +1,16 @@
+<!--
+@file		shoe_details.php
+@author		Sean Yeo Degen (SDY459)
+@course		ISIT307
+@group 	    F21-B
+@assignment	1
+@date 		22/1/2021
+@brief		Contains functions to peform addition of big numbers
+            using data structs containing length of the numbers 
+            and a dynamic array of digits to be able to 
+            compute numbers larger than unsigned long long int
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,7 +55,7 @@
                 <section id=productdetails>
                     <div class="col-2">
                         <?php 
-                        /*----------------------Test Case-----------------------------------*/
+                        /*----------------------Test Case-----------------------------------
                         $productno = date(" d-m-y")."-abc";
                         $productname = " Yellow Nike Running Shoes";
                         $productprice = 35.00;
@@ -53,12 +66,27 @@
                         $productbrand = " Nike";
                         $productdesc = " This shoe has been heavily worn for 3 years";
                         $interestcount = 70;
+                        */
+
+                        /*-------------------Test Case - Array ------------------------------*/
+                        $product = ["22-01-22-abc","Yellow Running Shoes",35.00,"Running Shoes","Yellow","US 9.5","Worn","Nike",
+                        "This shoe has been heavily worn for 3 years"];
+                        $productno = $product[0];
+                        $productname = $product[1];
+                        $productprice = $product[2];
+                        $productshoetype = $product[3];
+                        $productcolor = $product[4];
+                        $productsize = $product[5];
+                        $productcondition = $product[6];
+                        $productbrand = $product[7];
+                        $productdesc = $product[8];
                         
 
                         /*Code to Read from Txt.File will be here*/
                         /*Add product variable here*/ 
                         echo "<h2>Product Name:". $productname ."</h2><br>";
                         echo "<h4>Product Number:". $productno ."</h4><br>";
+                        echo "<h4>Brand:". $productbrand ."</h4><br>";
                         echo "<h4>Shoe Type:". $productshoetype ."</h4><br>";
                         echo "<h4>Color:". $productcolor ."</h4><br>";
                         echo "<h4>Size (US):". $productsize ."</h4><br>";
@@ -67,11 +95,13 @@
                         echo "<h4>Price (S$):". "$". $productprice ."</h4><br>";
                         ?>
                         <a href="#" class ="btn">Express Interest</a>
+
+                        <!-- Use a While Loop Count of all Listtings in ExpressInterest.txt 
                         <div class = "interest_count">
                             <?php
                                 echo "<p>". $interestcount ." people are interested in this product right now.</p><br>";
                             ?>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
             </div>
