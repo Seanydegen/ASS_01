@@ -84,8 +84,10 @@
                         $productdesc = $product[8];
                         */
 
-                        //Definition of Empty Array
+                        //Access ShoesSale.txt File
                         $lines = file('data/ShoesSale.txt');
+
+                        //Definition of Empty Array
                         $product = array();
 
                         foreach($lines as $line){
@@ -117,20 +119,20 @@
                             $product[$productno][] = $productdesc;
                         }
                         
-                        //Check to see the structure of the array.
+                        /*Check to see the structure of the array.*/
                         print_r($product); 
 
                         /*Code to Read from Txt.File will be here*/
                         /*Add product variable here*/
-                        echo "<h2>Product Name:". $productname ."</h2><br>";
-                        echo "<h4>Product Number:". $productno ."</h4><br>";
-                        echo "<h4>Brand:". $productbrand ."</h4><br>";
-                        echo "<h4>Shoe Type:". $productshoetype ."</h4><br>";
-                        echo "<h4>Color:". $productcolor ."</h4><br>";
-                        echo "<h4>Size (US):". $productsize ."</h4><br>";
-                        echo "<h4>Condition:". $productcondition ."</h4><br>";
-                        echo "<h4>Description:". $productdesc ."</h4><br>";
-                        echo "<h4>Price (S$):". "$". $productprice ."</h4><br>";
+                        echo "<h2>Product Name: ". $productname ."</h2><br>";
+                        echo "<h4>Product Number: ". $productno ."</h4><br>";
+                        echo "<h4>Brand: ". $productbrand ."</h4><br>";
+                        echo "<h4>Shoe Type: ". $productshoetype ."</h4><br>";
+                        echo "<h4>Color: ". $productcolor ."</h4><br>";
+                        echo "<h4>Size (US): ". $productsize ."</h4><br>";
+                        echo "<h4>Condition: ". $productcondition ."</h4><br>";
+                        echo "<h4>Description: ". $productdesc ."</h4><br>";
+                        echo "<h4>Price (S$): ". "$". $productprice ."</h4><br>";
                         ?>
 
                         <a href="#" class ="btn">Express Interest</a>*/
