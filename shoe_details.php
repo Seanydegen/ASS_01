@@ -1,14 +1,16 @@
 <!--
 @file		shoe_details.php
-@author		Sean Yeo Degen (SDY459)
+@author		Sean Yeo Degen (SDY459@uowmail.edu.au)
 @course		ISIT307
 @group 	    F21-B
 @assignment	1
 @date 		22/1/2021
-@brief		Contains functions to peform addition of big numbers
-            using data structs containing length of the numbers 
-            and a dynamic array of digits to be able to 
-            compute numbers larger than unsigned long long int
+@brief	    Shoe_details.php page is to display the information of the shoes selected by
+            the user from the shoe_list.php page.
+            Description: Multi-Dimensional Array is used to access the different shoe listings 
+            into a nested array where the key is the"productNo". Afterwhich, each variable 
+            of the product is tagged to the index of 
+            the array.
 -->
 
 <!DOCTYPE html>
@@ -68,7 +70,7 @@
                         $interestcount = 70;
                         */
 
-                        /*-------------------Test Case - Array ------------------------------*/
+                        /*-------------------Test Case - Array ------------------------------
                         $product = ["22-01-22-abc","Yellow Running Shoes",35.00,"Running Shoes","Yellow","US 9.5","Worn","Nike",
                         "This shoe has been heavily worn for 3 years"];
                         $productno = $product[0];
@@ -80,10 +82,46 @@
                         $productcondition = $product[6];
                         $productbrand = $product[7];
                         $productdesc = $product[8];
+                        */
+
+                        //Definition of Empty Array
+                        $lines = file('data/ShoesSale.txt');
+                        $product = array();
+
+                        foreach($lines as $line){
+                            //Deliminter for the array is ',' usibng trim to cut out whitespaces.
+                            list($productno,$productname,$productprice,$productshoetype,
+                            $productcolor,$productsize,$productcondition,$productbrand,$productdesc) 
+                            = array_map('trim',explode(',',$line));
+
+                            //Check if array key exist
+                            if(!array_key_exists($productno,$product))
+                            {
+                                //ProductNo will be the Array Key for the nested array within the Product Array.
+                                $product[$productno] = array();
+                            }
+
+                            //Check if productNo is already in the array.
+                            if(in_array($productno,$product[$productno])){
+                                continue;
+                            }
+
+                            //This is where we append the nested array elements.
+                            $product[$productno][] = $productname;
+                            $product[$productno][] = $productprice;
+                            $product[$productno][] = $productshoetype;
+                            $product[$productno][] = $productcolor;
+                            $product[$productno][] = $productsize;
+                            $product[$productno][] = $productcondition;
+                            $product[$productno][] = $productbrand;
+                            $product[$productno][] = $productdesc;
+                        }
                         
+                        //Check to see the structure of the array.
+                        print_r($product); 
 
                         /*Code to Read from Txt.File will be here*/
-                        /*Add product variable here*/ 
+                        /*Add product variable here*/
                         echo "<h2>Product Name:". $productname ."</h2><br>";
                         echo "<h4>Product Number:". $productno ."</h4><br>";
                         echo "<h4>Brand:". $productbrand ."</h4><br>";
@@ -94,8 +132,8 @@
                         echo "<h4>Description:". $productdesc ."</h4><br>";
                         echo "<h4>Price (S$):". "$". $productprice ."</h4><br>";
                         ?>
-                        <a href="#" class ="btn">Express Interest</a>
 
+                        <a href="#" class ="btn">Express Interest</a>*/
                         <!-- Use a While Loop Count of all Listtings in ExpressInterest.txt 
                         <div class = "interest_count">
                             <?php
