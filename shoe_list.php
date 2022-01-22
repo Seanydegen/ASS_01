@@ -6,7 +6,7 @@
         <title>Shoes Fever</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1"><!--Please remember to change style sheet for each page-->
-        <link rel= "stylesheet" href="styles/shoe_list.css" type="text/css"/> 
+        <link rel= "stylesheet" href="./styles/shoe_list.css" type="text/css"/> 
     </head>
     <body>
         <header>
@@ -23,21 +23,68 @@
         </header>
 
         <!---------------- Product listing ----------->
-        <div class="small-cointainer shoes_list">
-            <section id=productlisting>
-                <div class="listing">
-                    <?php
-                        $listCount = 1;
-                        $productno = date(" d-m-y")."-abc";
-                        $productname = " Yellow Nike Running Shoes";
-                        $productshoetype = " Running Shoes";
-                        $productbrand = " Nike";
+        <div class="list_table">
+        <?php
+            /* original test data
+            $listCount = 1;
+            $productno = date(" d-m-y")."-abc";
+            $productname = " Yellow Nike Running Shoes";
+            $productshoetype = " Running Shoes";
+            $productbrand = " Nike";
+            */
 
-                        echo "<h1>$listCount. " . "$productno, " . "$productbrand, " . 
-                             "$productshoetype, " . "$productname</h1>";
-                    ?>
-                </div>
-            </section>
+            //Access ShoesSale.txt File
+            $lines = file('./data/ShoesSale.txt');
+
+            //Definition of Empty Array
+            $product = array();
+
+            foreach($lines as $line){
+                //Deliminter for the array is ',' usibng trim to cut out whitespaces.
+                list($productno,$productname,$productprice,$productshoetype,
+                $productcolor,$productsize,$productcondition,$productbrand,$productdesc) 
+                = array_map('trim',explode(',',$line));
+
+                //Check if array key exist
+                if(!array_key_exists($productno,$product))
+                {
+                    //ProductNo will be the Array Key for the nested array within the Product Array.
+                    $product[$productno] = array();
+                }
+
+                //Check if productNo is already in the array.
+                if(in_array($productno,$product[$productno])){
+                    continue;
+                }
+
+                //This is where we append the nested array elements.
+                $product[$productno][] = $productname;
+                $product[$productno][] = $productshoetype;
+                $product[$productno][] = $productbrand;
+            }
+            
+            /*Check to see the structure of the array.*/
+            print_r($product);
+
+            /* original shoe list display
+            echo "<h2>$listCount. " . "$productno, " . "$productbrand, " . 
+                 "$productshoetype, " . "$productname</h2>";
+            */
+
+            $productcounter = 1;
+
+            echo "<table><tr><th>No</th><th>Product Number</th><th>Brand</th><th>Type</th><th>Name</th></tr>";
+            foreach($product as $productno => $productname) {
+                echo "<tr><td>$productcounter</td>" . 
+                     "<td>$productno</td>" . 
+                     "<td>$productname[2]</td>" . 
+                     "<td>$productname[1]</td>" . 
+                     "<td>$productname[0]</td></tr>";
+
+                $productcounter++;
+            }
+            echo "</table>";
+        ?>
         </div>
 
         <!----------------footer---------------------->
