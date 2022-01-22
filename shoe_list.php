@@ -87,6 +87,11 @@
         ?>
         </div>
 
+        <!---------------- Enter Product Number ----------->
+        <div class="product_number_input">
+        <p>Enter product number for more details: <input type="text" name="productnoinput" /></p>
+        </div>
+
         <!----------------footer---------------------->
         <div class="fixed__footer">
             <!-- PHP function for date is used here -->
