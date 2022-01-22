@@ -83,15 +83,18 @@
                         $productbrand = $product[7];
                         $productdesc = $product[8];
                         */
+                        /*-----------------------------------------------------------------------------------*/
+                        /*Using the File Acces Functions and Array Function */
 
-                        //Access ShoesSale.txt File
+                        //Using the File Function to Access ShoesSale.txt File line by line
                         $lines = file('data/ShoesSale.txt');
 
                         //Definition of Empty Array
                         $product = array();
 
                         foreach($lines as $line){
-                            //Deliminter for the array is ',' usibng trim to cut out whitespaces.
+                            /*Deliminter for the array is ',' usibng trim to cut out whitespaces.
+                            List is being used to assign variables into the array.*/
                             list($productno,$productname,$productprice,$productshoetype,
                             $productcolor,$productsize,$productcondition,$productbrand,$productdesc) 
                             = array_map('trim',explode(',',$line));
@@ -119,12 +122,26 @@
                             $product[$productno][] = $productdesc;
                         }
                         
-                        /*Check to see the structure of the array.*/
-                        print_r($product); 
+                        /*---------- Test Case - User Input Search Product Selection in Array--------- */
+                        function search($product, $search_term){
+                            //Empty Array for Search
+                            $matches = array();
+                            //Trim Search to remove whitespaces
+                            $search_term = trim($search_term);
+                            //Loop through each line in the array to look for a match with the User Input.
+                            foreach($product as $key => $value_array){
+                                if(stristr($key,$search_term)){
+                                    $matches[$key] = $value_array;
+                                }
+                            }
+                            return $matches;
+                        }
+
+                        print_r(search($product,'21-01-22-abc'));
 
                         /*Code to Read from Txt.File will be here*/
                         /*Add product variable here*/
-                        echo "<h2>Product Name: ". $productname ."</h2><br>";
+                        /*echo "<h2>Product Name: ". $productname ."</h2><br>";
                         echo "<h4>Product Number: ". $productno ."</h4><br>";
                         echo "<h4>Brand: ". $productbrand ."</h4><br>";
                         echo "<h4>Shoe Type: ". $productshoetype ."</h4><br>";
@@ -133,6 +150,7 @@
                         echo "<h4>Condition: ". $productcondition ."</h4><br>";
                         echo "<h4>Description: ". $productdesc ."</h4><br>";
                         echo "<h4>Price (S$): ". "$". $productprice ."</h4><br>";
+                        */
                         ?>
 
                         <a href="#" class ="btn">Express Interest</a>*/
