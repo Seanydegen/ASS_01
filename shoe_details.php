@@ -1,3 +1,18 @@
+<!--
+@file		shoe_details.php
+@author		Sean Yeo Degen (SDY459@uowmail.edu.au)
+@course		ISIT307
+@group 	    F21-B
+@assignment	1
+@date 		22/1/2021
+@brief	    Shoe_details.php page is to display the information of the shoes selected by
+            the user from the shoe_list.php page.
+            Description: Multi-Dimensional Array is used to access the different shoe listings 
+            into a nested array where the key is the"productNo". Afterwhich, each variable 
+            of the product is tagged to the index of 
+            the array.
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,7 +57,7 @@
                 <section id=productdetails>
                     <div class="col-2">
                         <?php 
-                        /*----------------------Test Case-----------------------------------*/
+                        /*----------------------Test Case-----------------------------------
                         $productno = date(" d-m-y")."-abc";
                         $productname = " Yellow Nike Running Shoes";
                         $productprice = 35.00;
@@ -53,25 +68,113 @@
                         $productbrand = " Nike";
                         $productdesc = " This shoe has been heavily worn for 3 years";
                         $interestcount = 70;
-                        
+                        */
+
+                        /*-------------------Test Case - Array ------------------------------
+                        $product = ["22-01-22-abc","Yellow Running Shoes",35.00,"Running Shoes","Yellow","US 9.5","Worn","Nike",
+                        "This shoe has been heavily worn for 3 years"];
+                        $productno = $product[0];
+                        $productname = $product[1];
+                        $productprice = $product[2];
+                        $productshoetype = $product[3];
+                        $productcolor = $product[4];
+                        $productsize = $product[5];
+                        $productcondition = $product[6];
+                        $productbrand = $product[7];
+                        $productdesc = $product[8];
+                        */
+                        /*-----------------------------------------------------------------------------------*/
+                        /*Using the File Acces Functions and Array Function */
 
                         /*Code to Read from Txt.File will be here*/
-                        /*Add product variable here*/ 
-                        echo "<h2>Product Name:". $productname ."</h2><br>";
-                        echo "<h4>Product Number:". $productno ."</h4><br>";
-                        echo "<h4>Shoe Type:". $productshoetype ."</h4><br>";
-                        echo "<h4>Color:". $productcolor ."</h4><br>";
-                        echo "<h4>Size (US):". $productsize ."</h4><br>";
-                        echo "<h4>Condition:". $productcondition ."</h4><br>";
-                        echo "<h4>Description:". $productdesc ."</h4><br>";
-                        echo "<h4>Price (S$):". "$". $productprice ."</h4><br>";
+                        //Using the File Function to Access ShoesSale.txt File line by line
+                        $lines = file('data/ShoesSale.txt');
+
+                        //Definition of Empty Array
+                        $product = array();
+
+                        foreach($lines as $line){
+                            /*Deliminter for the array is ',' usibng trim to cut out whitespaces.
+                            List is being used to assign variables into the array.*/
+                            list($productno,$productname,$productprice,$productshoetype,
+                            $productcolor,$productsize,$productcondition,$productbrand,$productdesc) 
+                            = array_map('trim',explode(',',$line));
+
+                            //Check if array key exist
+                            if(!array_key_exists($productno,$product))
+                            {
+                                //ProductNo will be the Array Key for the nested array within the Product Array.
+                                $product[$productno] = array();
+                            }
+
+                            //Check if productNo is already in the array.
+                            if(in_array($productno,$product[$productno])){
+                                continue;
+                            }
+
+                            //This is where we append the nested array elements.
+                            $product[$productno][] = $productname;
+                            $product[$productno][] = $productprice;
+                            $product[$productno][] = $productshoetype;
+                            $product[$productno][] = $productcolor;
+                            $product[$productno][] = $productsize;
+                            $product[$productno][] = $productcondition;
+                            $product[$productno][] = $productbrand;
+                            $product[$productno][] = $productdesc;
+                        }
+                        
+                        /*---------- Test Case - User Input Search Product Selection in Array--------- */
+                        function search($product, $search_term){
+                            //Empty Array for Search
+                            $matches = array();
+                            //Trim Search to remove whitespaces
+                            $search_term = trim($search_term);
+                            //Loop through each line in the array to look for a match with the User Input.
+                            foreach($product as $key => $value_array){
+                                if(stristr($key,$search_term)){
+                                    $matches[$key] = $value_array;
+                                }
+                            }
+                            return $matches;
+                        }
+
+                        /*Empty Array to store Searched Array*/
+                        $search_details = array();
+                        /*Input Data 'productnoinput' is from shoe_list.php using $_POST by the user*/
+                        $inputproductNo = $_POST['productnoinput'];
+                        $search_details = search($product,$inputproductNo);
+
+                        /*Variables are stored with information from searched productno*/
+                        $productname = $search_details[$inputproductNo][0];
+                        $productprice = $search_details[$inputproductNo][1];
+                        $productshoetype = $search_details[$inputproductNo][2];
+                        $productcolor = $search_details[$inputproductNo][3];
+                        $productsize = $search_details[$inputproductNo][4];
+                        $productcondition = $search_details[$inputproductNo][5];
+                        $productbrand = $search_details[$inputproductNo][6];
+                        $productdesc = $search_details[$inputproductNo][7];
+                        
+
+                        //Display Variables
+                        /*Add product variable here*/
+                        echo "<h2>Product Name: ". $productname ."</h2><br>";
+                        echo "<h4>Product Number: ". $inputproductNo ."</h4><br>";
+                        echo "<h4>Brand: ". $productbrand ."</h4><br>";
+                        echo "<h4>Shoe Type: ". $productshoetype ."</h4><br>";
+                        echo "<h4>Color: ". $productcolor ."</h4><br>";
+                        echo "<h4>Size (US): ". $productsize ."</h4><br>";
+                        echo "<h4>Condition: ". $productcondition ."</h4><br>";
+                        echo "<h4>Description: ". $productdesc ."</h4><br>";
+                        echo "<h4>Price (S$): ". "$". $productprice ."</h4><br>";
                         ?>
-                        <a href="#" class ="btn">Express Interest</a>
+
+                        <a href="#" class ="btn">Express Interest</a>*/
+                        <!-- Use a While Loop Count of all Listtings in ExpressInterest.txt 
                         <div class = "interest_count">
                             <?php
                                 echo "<p>". $interestcount ." people are interested in this product right now.</p><br>";
                             ?>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
             </div>
