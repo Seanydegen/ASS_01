@@ -89,8 +89,10 @@
 
         <!---------------- Enter Product Number ----------->
         <div class="product_number_input">
+        <form name="productnodetails" action="process_shoe_list.php" method="post">
         <p>Enter product number for more details: <input type="text" name="productnoinput" /></p>
-        <button type="button">Submit</button>
+        <input type="submit" name="Submit" value="Submit product no">
+        </form>
         </div>
 
         <!----------------footer---------------------->
