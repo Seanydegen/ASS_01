@@ -100,26 +100,26 @@ header {
 .product_number_input p {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 30px;
     color: #30475E;
 }
 
-.product_number_input input {
-    border: 1px solid black;
+.product_number_input input[type=text] {
+    border: 3px solid black;
     border-color: #F05454;
     border-radius: 5px;
     width: 225px;
     height: 35px;
 }
 
-.product_number_input button {
-    width: 150px;
-    height: 35px;
-    color: #F05454;
-    background-color: #30475E;
+.product_number_input input[type=submit] {
+    border: 3px solid black;
     border-radius: 5px;
+    width: 225px;
+    height: 30px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 20px;
-
+    color: #F05454;
+    background-color: #30475E;
 }
