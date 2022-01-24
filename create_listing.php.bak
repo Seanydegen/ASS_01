@@ -89,7 +89,7 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 					{
 						$listingInfo = "$firstName~$lastName~$contactNum~$email~$productNo~$listingName~$brand~$size~$condition~$price~$description\n";
 						$shoeSalesFile = fopen($shoeListingsFile, "ab");// opens file for writing only and places the pointer at the end
-						if (shoeSalesFile === FALSE)
+						if ($shoeSalesFile === FALSE)
 						{
 							echo "There was an error saving your listing\n";
 						}

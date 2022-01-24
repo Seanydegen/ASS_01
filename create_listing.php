@@ -36,7 +36,7 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		<body>
 			<?php
 			
-			$shoeListingsFile = "ShoesSale.txt";
+			$shoeListingsFile = "./data/ShoesSale.txt";
 			if (isset($_POST['submit'])) {
 									$firstName = stripslashes($_POST['fName']);
 					$lastName = stripslashes($_POST['lName']);
