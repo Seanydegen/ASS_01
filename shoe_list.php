@@ -64,7 +64,7 @@
             }
             
             /*Check to see the structure of the array.*/
-            print_r($product);
+            //print_r($product);
 
             /* original shoe list display
             echo "<h2>$listCount. " . "$productno, " . "$productbrand, " . 
@@ -90,6 +90,7 @@
         <!---------------- Enter Product Number ----------->
         <div class="product_number_input">
         <p>Enter product number for more details: <input type="text" name="productnoinput" /></p>
+        <button type="button">Submit</button>
         </div>
 
         <!----------------footer---------------------->
