@@ -86,6 +86,7 @@
                         /*-----------------------------------------------------------------------------------*/
                         /*Using the File Acces Functions and Array Function */
 
+                        /*Code to Read from Txt.File will be here*/
                         //Using the File Function to Access ShoesSale.txt File line by line
                         $lines = file('data/ShoesSale.txt');
 
@@ -137,12 +138,27 @@
                             return $matches;
                         }
 
-                        print_r(search($product,'21-01-22-abc'));
-                        //print_r($matches);
-                        /*Code to Read from Txt.File will be here*/
+                        /*Empty Array to store Searched Array*/
+                        $search_details = array();
+                        /*Input Data 'productnoinput' is from shoe_list.php using $_POST by the user*/
+                        $inputproductNo = $_POST['productnoinput'];
+                        $search_details = search($product,$inputproductNo);
+
+                        /*Variables are stored with information from searched productno*/
+                        $productname = $search_details[$inputproductNo][0];
+                        $productprice = $search_details[$inputproductNo][1];
+                        $productshoetype = $search_details[$inputproductNo][2];
+                        $productcolor = $search_details[$inputproductNo][3];
+                        $productsize = $search_details[$inputproductNo][4];
+                        $productcondition = $search_details[$inputproductNo][5];
+                        $productbrand = $search_details[$inputproductNo][6];
+                        $productdesc = $search_details[$inputproductNo][7];
+                        
+
+                        //Display Variables
                         /*Add product variable here*/
-                        /*echo "<h2>Product Name: ". $productname ."</h2><br>";
-                        echo "<h4>Product Number: ". $productno ."</h4><br>";
+                        echo "<h2>Product Name: ". $productname ."</h2><br>";
+                        echo "<h4>Product Number: ". $inputproductNo ."</h4><br>";
                         echo "<h4>Brand: ". $productbrand ."</h4><br>";
                         echo "<h4>Shoe Type: ". $productshoetype ."</h4><br>";
                         echo "<h4>Color: ". $productcolor ."</h4><br>";
@@ -150,7 +166,6 @@
                         echo "<h4>Condition: ". $productcondition ."</h4><br>";
                         echo "<h4>Description: ". $productdesc ."</h4><br>";
                         echo "<h4>Price (S$): ". "$". $productprice ."</h4><br>";
-                        */
                         ?>
 
                         <a href="#" class ="btn">Express Interest</a>*/
