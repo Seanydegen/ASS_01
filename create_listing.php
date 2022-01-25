@@ -87,7 +87,7 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 					
 					else
 					{
-						$listingInfo = "$firstName~$lastName~$contactNum~$email~$productNo~$listingName~$brand~$size~$condition~$price~$description\n";
+						$listingInfo = "$productNo~$firstName~$lastName~$contactNum~$email~$listingName~$brand~$size~$condition~$price~$description\n";
 						$shoeSalesFile = fopen($shoeListingsFile, "ab");// opens file for writing only and places the pointer at the end
 						if ($shoeSalesFile === FALSE)
 						{
