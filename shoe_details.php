@@ -12,7 +12,7 @@
             of the product is tagged to the index of the array. Where it will be printed out
             accordingly.
 
-            A for loop is used to count the number of entries in the ExpInterest.txt file.
+            A while loop is used to count the number of entries in the ExpInterest.txt file.
             Where the count will be printed out everytime a user has submitted a form to
             express interest in the particular shoe.
 -->
@@ -188,7 +188,17 @@
                         <!-- Use a While Loop Count of all Listtings in ExpressInterest.txt 
                         <div class = "interest_count">
                             <?php
-                                echo "<p>". $interestcount ." people are interested in this product right now.</p><br>";
+                                /*ExpInterest.txt is tagged to $exp_int Where a while loop would
+                                Count the number of lines in the text file. It will then return the count.*/
+                                $exp_int = "ExpInterest.txt";
+                                $linecount = 0;
+                                $handler = fopen($exp_int,"r");
+                                while(!feof($handler)){
+                                    $line = fgets($handler);
+                                    $linecount++;
+                                }
+                                fclose($handler);
+                                echo "<p>". $linecount ." people are interested in this product right now.</p><br>";
                             ?>
                         </div> -->
                     </div>
