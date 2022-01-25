@@ -174,9 +174,13 @@
                         echo "<h4>Condition: ". $productcondition ."</h4><br>";
                         echo "<h4>Description: ". $productdesc ."</h4><br>";
                         echo "<h4>Price (S$): ". "$". $productprice ."</h4><br>";
+                        /*Owner's Contact Details */
+                        echo "<h4>Owner's Name: ". $product_owner_name ."</h4><br>";
+                        echo "<h4>Owner's Contact No: ". $product_owner_contact ."</h4><br>";
+                        echo "<h4>Owner's Email: ". $product_owner_email ."</h4><br>";
                         ?>
 
-                        <a href="#" class ="btn">Express Interest</a>*/
+                        <a href="express_interest.php" class ="btn">Express Interest</a>*/
                         <!-- Use a While Loop Count of all Listtings in ExpressInterest.txt 
                         <div class = "interest_count">
                             <?php
