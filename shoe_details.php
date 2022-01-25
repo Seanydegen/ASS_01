@@ -9,8 +9,12 @@
             the user from the shoe_list.php page.
             Description: Multi-Dimensional Array is used to access the different shoe listings 
             into a nested array where the key is the"productNo". Afterwhich, each variable 
-            of the product is tagged to the index of 
-            the array.
+            of the product is tagged to the index of the array. Where it will be printed out
+            accordingly.
+
+            A for loop is used to count the number of entries in the ExpInterest.txt file.
+            Where the count will be printed out everytime a user has submitted a form to
+            express interest in the particular shoe.
 -->
 
 <!DOCTYPE html>
