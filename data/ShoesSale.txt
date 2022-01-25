@@ -1,5 +1,1 @@
-22-01-22-def,Yellow Running Shoes,35.00,Running Shoes,Yellow,US 9.5,Worn,Nike,This shoe has been heavily worn for 3 years,\n
-21-01-22-abc,Purple Running Shoes,45.00,Running Shoes,Red,US 9.5,Worn,Puma,This shoe has been worn for one time in the past,\n
-23-01-22-abc,Blue Leather Boots,50.00,Boots,Blue,US 10.5,Worn,Timberland,This shoe has been worn for two time in the past,\n
-19-01-22-abc,Black Running Shoes,70.00,Running Shoes,Black,US 8.5,Worn,Adidas,This shoe has been heavily worn for 2 years,\n
-18-01-22-abc,Orange Sandals,45.00,Sandals,Orange,US 8.5,New,FlipFlop,This shoe is brand new,\n
+Sean~Yeo~97916402~seany.dg98@gmail.com~22-01-22-abc~Nike Running Shoes~Nike~US9~Brand New~Running Shoes~Purple~45.00~New Nike Shoe			
