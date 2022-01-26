@@ -46,16 +46,16 @@
             <div class="row">
                 <section id="photoArray">
                     <div class="col-2">
-                        <img src="source/shoe_gallery/shoe_1.jfif" width="600px" height="600">
+                        <img src="source/shoe_gallery/shoe_1.jfif" width="400px" height="400px">
                     </div>
                     <div class="col-2">
-                        <img src="source/shoe_gallery/shoe_2.jfif" width="600px" height="600">
+                        <img src="source/shoe_gallery/shoe_2.jfif" width="400px" height="400px">
                     </div>
                     <div class="col-2">
-                        <img src="source/shoe_gallery/shoe_3.jfif" width="600px" height="600">
+                        <img src="source/shoe_gallery/shoe_3.jfif" width="400px" height="400px">
                     </div>
                     <div class="col-2">
-                        <img src="source/shoe_gallery/shoe_4.jfif" width="600px" height="600">
+                        <img src="source/shoe_gallery/shoe_4.jfif" width="400px" height="400px">
                     </div>
                 </section>
                 <section id=productdetails>
@@ -131,6 +131,15 @@
                         }
                         
                         /*---------- Test Case - User Input Search Product Selection in Array--------- */
+                        /*!
+                        @brief  The function is required to search for the specific productNo within the 
+                        ShoeSales.txt where we will be able to retrieve the entire array and print the
+                        relevant information for the user to view.
+                        @param  $product - The Multi-Dimenstional Array that contains all the shoe listings
+                                $search_term - The value that we want to search for which is the productNo.
+                        @return $matches is an array where the results of the search will be stores. This 
+                                will be used to display information using the Array index
+                        *//*___________________________________________________________________________*/
                         function search($product, $search_term){
                             //Empty Array for Search
                             $matches = array();
@@ -149,7 +158,7 @@
                         $search_details = array();
                         /*Input Data 'productnoinput' is from shoe_list.php using $_POST by the user*/
                         //Test Case
-                        $inputproductNo = "22-01-22-abc";
+                        $inputproductNo = "23-01-22-abc";
                         //$inputproductNo = $_POST['productnoinput'];
                         $search_details = search($product,$inputproductNo);
 
@@ -165,8 +174,7 @@
                         $productcolor = $search_details[$inputproductNo][8];
                         $productprice = $search_details[$inputproductNo][9];
                         $productdesc = $search_details[$inputproductNo][10];
-                        
-
+                
                         //Display Variables
                         /*Add product variable here*/
                         echo "<h2>Product Name: ". $productname ."</h2><br>";
@@ -185,22 +193,34 @@
                         ?>
 
                         <a href="express_interest.php" class ="btn">Express Interest</a>*/
-                        <!-- Use a While Loop Count of all Listtings in ExpressInterest.txt 
+                        <!-- Use a While Loop Count of all Listtings in ExpressInterest.txt -->
                         <div class = "interest_count">
                             <?php
-                                /*ExpInterest.txt is tagged to $exp_int Where a while loop would
-                                Count the number of lines in the text file. It will then return the count.*/
-                                $exp_int = "ExpInterest.txt";
-                                $linecount = 0;
-                                $handler = fopen($exp_int,"r");
-                                while(!feof($handler)){
-                                    $line = fgets($handler);
-                                    $linecount++;
+                                /*File Directory of ExpInterest.txt*/
+                                $exp_int = 'data/ExpInterest.txt';
+                                /*Retreival of Contents from the file.*/
+                                $contents = file_get_contents($exp_int);
+                                $pattern = preg_quote($inputproductNo,'/');
+                                $pattern = "/^.*$pattern.*\$/m";
+                                if(preg_match_all($pattern,$contents,$search_results)){
+
+                                   /*Test Check on the number of Entries of Elements within the searched array 
+                                    echo"Found Matches:\n";
+                                    echo "<br>";
+                                    print_r($search_results);*/
                                 }
-                                fclose($handler);
+                                else{
+                                    /*Error Message when there are no existing interest listing within the ExpInterest.txt file*/
+                                    echo "The are current no interest. Be the first!";
+                                }
+                                /*Using ForEach we take the count of the number of elements within the searched Array*/
+                                $linecount = 0;
+                                foreach($search_results as $type){
+                                    $linecount += count($type);
+                                }
                                 echo "<p>". $linecount ." people are interested in this product right now.</p><br>";
                             ?>
-                        </div> -->
+                        </div>
                     </div>
                 </section>
             </div>

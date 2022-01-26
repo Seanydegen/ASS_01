@@ -73,6 +73,7 @@ header {
         "shoe_1 shoe_2"
         "shoe_3 shoe_4";
 }
+
 /*#productdetails {
     position:absolute;
     float: right;
@@ -101,6 +102,7 @@ header {
     display: inline-block;
     position: relative;
     left: 150px;
+    top: 5px;
 }
 
 .shoe_details .col-2 .btn:hover {
@@ -109,6 +111,6 @@ header {
 .interest_count {
     position: relative;
     left: 50px;
-    top: 20px;
+    top: 10px;
 }
 

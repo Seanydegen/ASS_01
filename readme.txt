@@ -12,3 +12,10 @@ https://www.codespeedy.com/save-html-form-data-in-a-txt-text-file-in-php/
 
 Multi-Dimensional Array Help:
 https://stackoverflow.com/questions/25615506/converting-text-file-into-multi-dimensional-associative-array-in-php?rq=1
+
+Search of Specific Element in array:
+https://www.codegrepper.com/code-examples/php/searching+inside+a+file+using+php
+
+Count of Eleemnts within a Multi-Dimensional Array
+https://stackoverflow.com/questions/9062770/multi-dimensional-array-count-in-php
+
