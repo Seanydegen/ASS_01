@@ -117,6 +117,7 @@
         <form name="productnodetails" action="process_shoe_list.php" method="post">
         <p>Enter product number for more details: <input type="text" name="productnoinput" /></p>
         <input type="submit" name="Submit" value="Submit product no">
+        <span id="productnoinputerror" class="errorMessage"></span>
         </form>
         </div>
 
