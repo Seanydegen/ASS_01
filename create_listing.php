@@ -151,16 +151,16 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		<header class="head">
 			<p class="piAndsi"> Personal Information </p>
 		</header>
-			<p>First Name: <input type="text" name="fName" required value="<?php echo $firstName;?>" /> </p>
-			<p>Last Name: <input type="text" name="lName" required value="<?php echo $lastName; ?>" /> </p>
-			<p>Contact Number: <input type="text" name="contactNum" placeholder="XXXX XXXX" pattern="[6,8,9]{1}[0-9]{7}" title="Please enter a valid 8 digit number" required value="<?php echo $contactNum; ?>" /> </p>
-			<p>Email: <input type="email" name="email" placeholder="example@example.com" required value="<?php echo $email; ?>" /> </p>
+			<p>First Name: <input type="text" name="fName" required  /> </p>
+			<p>Last Name: <input type="text" name="lName" required  /> </p>
+			<p>Contact Number: <input type="text" name="contactNum" placeholder="XXXX XXXX" pattern="[6,8,9]{1}[0-9]{7}" title="Please enter a valid 8 digit number" required  /> </p>
+			<p>Email: <input type="email" name="email" placeholder="example@example.com" required  /> </p>
 		<header class="head">
 			<p class="piAndsi"> Shoe Information </p>
 		</header>
 			<p>Product No: <input type="text" name="productNo" placeholder="3 Letters (e.g Abc)" pattern="[a-z,A-Z]{3}" title="Please enter 3 letters" required value="<?php echo $productNo; ?>" /> </p>
-			<p>Lisiting Name: <input type="text" name="listingName" required value="<?php echo $listingName; ?>" /> </p>
-			<p>Brand: <input type="text" name="brand" required value="<?php echo $brand; ?>" /> </p>
+			<p>Lisiting Name: <input type="text" name="listingName" required  /> </p>
+			<p>Brand: <input type="text" name="brand" required  /> </p>
 			
 		<p>Colour:
 		<select name="shoeColourSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
@@ -212,9 +212,9 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		</select>
 		</p>
 		
-			<p>Price: $<input type="int" name="price" pattern="[0-9]*" title="Please enter a number" required value="<?php echo $price; ?>" /> </p>
+			<p>Price: $<input type="int" name="price" pattern="[0-9]*" title="Please enter a number" required  /> </p>
 				<label for="description">Description: </label>
-				<textarea id="description" name="description" required rows="4" cols="50"><?php echo $description;?></textarea><br><br>
+				<textarea id="description" name="description" required rows="4" cols="50"></textarea><br><br>
 				
 				<!--- Buttons down below --->
 					<input type="reset" value="Reset" />

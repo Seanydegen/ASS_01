@@ -219,7 +219,7 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 				<!--- Buttons down below --->
 					<input type="reset" value="Reset" />
 					<input type="submit" name="submit" value="Create Listing" /> <br>
-					<p class="bottomMessage"> sdsdsd <?php echo $errorMessage; ?></p>
+					<p class="bottomMessage"> <?php echo $errorMessage; ?></p>
 				</form>
 			</div>
 		</body>
