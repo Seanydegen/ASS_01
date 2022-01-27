@@ -39,29 +39,32 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 			
 			$errorMessage = null;
 
-			$shoeListingsFile = "./data/ExpInterest.txt";
+			//ShoesSale to check if product number exists
+			$shoeListingsFile = "./data/ShoesSale.txt";
+			//ExpInterest to put the data in
+			$expressInterest = "./data/ExpInterest.txt";
+			
 			if (isset($_POST['submit'])) {
 
-					$firstName = stripslashes($_POST['fName']);
-					$lastName = stripslashes($_POST['lName']);
+					$name = stripslashes($_POST['name']);
 					$contactNum = stripslashes($_POST['contactNum']);
 					$email = stripslashes($_POST['email']);
+					$productNum = stripslashes($_POST['productNum']);
+					$offer = stripslashes($_POST['offer']);
 
 					
 					//This following code to replace all '~' with '-', as '~' will be used  
 					//to seperate the different values in the text file
-					$firstName = str_replace("~", "-", $firstName);
-					$lastName = str_replace("~", "-", $lastName);
+					$name = str_replace("~", "-", $name);
 					$contactNum = str_replace("~", "-", $contactNum);
 					$email = str_replace("~", "-", $email);
+					$productNum = str_replace("~", "-", $productNum);
+					$offer = str_replace("~", "-", $offer);
 
 					$ExistingProductNum = array();	
-					
-					//Adds current date to productno format to match 'dd-mm-yy-ccc'
-					$productNo = date("d-m-y-") . (string)$productNo;
-				
+						
 					//Code below checks if there is a listing with the same product number
-					//Finds the 4th text as it is where the product number is saved
+					//Finds the 1st text as it is where the product number is saved
 					if (file_exists($shoeListingsFile) && filesize($shoeListingsFile) > 0)
 					{
 						$MessageArray = file($shoeListingsFile);
@@ -73,60 +76,56 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 					}
 					
 					//If they product numbers match, do not save and empty the productNo variable
-					if (in_array($productNo, $ExistingProductNum))
+					if (in_array($productNum, $ExistingProductNum) == false)
 					{
-						$errorMessage = "Product number already exists, please choose another.";
-						$productNo = "";
+						$errorMessage = "Product number does not exist please input another";
+						$productNum = "";
 
 					}
 					
 					else
 					{
-						$listingInfo = "$productNo~$firstName~$lastName~$contactNum~$email~$listingName~$brand~$colour~$shoeType~$size~$condition~$price~$description\n";
-						$shoeSalesFile = fopen($shoeListingsFile, "ab");// opens file for writing only and places the pointer at the end
-						if ($shoeSalesFile === FALSE)
+						$expressInfo = "$productNum~$name~$contactNum~$email~$offer\n";
+						$expressInterest = fopen($expressInterest, "ab");// opens file for writing only and places the pointer at the end
+						if ($expressInterest === FALSE)
 						{
 							$errorMessage = "There was an error saving your listing";
 						}
 						
 						else {
-							// Writes into shoeSalesFile, the listingInfo
-							fwrite ($shoeSalesFile, $listingInfo);
-							fclose($shoeSalesFile);
+							// Writes into ExpInterest File, the expressInfo
+							fwrite ($expressInterest, $expressInfo);
+							fclose($expressInterest);
 							$errorMessage = "Sucess!";
 							
 							//Resets values
-							$firstName = "";
-							$lastName = "";
+							$name = "";
 							$contactNum = "";
 							$email = "";
+							$productNum = "";
+							$offer = "";
 
 						}
 					}
 			}
-					else {
-							//Resets values
-							$firstName = "";
-							$lastName = "";
-							$contactNum = "";
-							$email = "";
 
-					}
 			?>
 		
 			<div class="expressInterest">
 			
 				<h1> Express Interest </h1>
-				<form>
-					<p>Name: <input type="text" name="name" /></p>
-					<p>Contact Number: <input type="text" name="contactNum" /></p>
-					<p>Email: <input type="email" name="email" /></p>
-					<p>Product Number: <input type="text" name="productNum" /></p>
-					<p>Offer: <input type="number" name="offer"  /></p>
+				<form name="expressInterest" action="express_interest.php" method="POST">
+					<p>Name: <input type="text" name="name" required /></p>
+					<p>Contact Number: <input type="text" name="contactNum" placeholder="XXXX XXXX" pattern="[6,8,9]{1}[0-9]{7}" title="Please enter a valid 8 digit number" required /></p>
+					<p>Email: <input type="email" name="email" required placeholder="example@example.com" /></p>
+					<p>Product Number: <input type="text" name="productNum" placeholder="Etc. 01-10-11-abc" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[a-z,A-Z]{3}" title="Please enter a valid Product Number" required /></p>
+					<p>Offer: <input type="number" name="offer" required /></p>
 
+					<input type="reset" value="Reset" />
+					<input type="submit" name="submit" value="Send Form" />
+					
+					<p><?php echo $errorMessage ?></p>
 				</form>
-				<p><input type="reset" value="Reset" />&nbsp;&nbsp;
-				<input type="submit" name="Submit" value="Send Form" />
 			</div>
 		</body>
 		
