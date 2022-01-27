@@ -123,3 +123,9 @@ header {
     color: #F05454;
     background-color: #30475E;
 }
+
+/* Error message style */
+.product_number_input span {
+    color: red;
+    font-family: 'Montserrat', sans-serif;
+}
