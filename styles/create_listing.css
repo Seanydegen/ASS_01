@@ -79,3 +79,17 @@ input {
 p {
 	margin-left: 35px;
 }
+
+.errorMessage {
+	color: #FF0000;
+}
+
+.tryErrorMessage{
+	font-weight: 400;
+	color: red;
+	margin-left:500px;
+}
+
+.bottomMessage {
+	color: red;
+}

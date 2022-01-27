@@ -36,9 +36,12 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		<body>
 			<?php
 			
+			$errorMessage = null;
+
 			$shoeListingsFile = "./data/ShoesSale.txt";
 			if (isset($_POST['submit'])) {
-									$firstName = stripslashes($_POST['fName']);
+
+					$firstName = stripslashes($_POST['fName']);
 					$lastName = stripslashes($_POST['lName']);
 					$contactNum = stripslashes($_POST['contactNum']);
 					$email = stripslashes($_POST['email']);
@@ -49,6 +52,8 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 					$condition = stripslashes($_POST['conditionSelection']);
 					$price = stripslashes($_POST['price']);
 					$description = stripslashes($_POST['description']);
+					$colour = stripslashes($_POST['shoeColourSelection']);
+					$shoeType = stripslashes($_POST['shoeTypeSelection']);
 					
 					//This following code to replace all '~' with '-', as '~' will be used  
 					//to seperate the different values in the text file
@@ -63,7 +68,12 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 					$condition = str_replace("~", "-", $condition);
 					$price = str_replace("~", "-", $price);
 					$description = str_replace("~", "-", $description);
-					$ExistingProductNum = array();
+					$colour = str_replace("~", "-", $colour);
+					$shoeType = str_replace("~", "-", $shoeType);
+					$ExistingProductNum = array();	
+					
+					//Adds current date to productno format to match 'dd-mm-yy-ccc'
+					$productNo = date("d-m-y-") . (string)$productNo;
 				
 					//Code below checks if there is a listing with the same product number
 					//Finds the 4th text as it is where the product number is saved
@@ -73,32 +83,32 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 						$count = count($MessageArray);
 						for ($i = 0; $i < $count; ++$i) {
 						$CurrMsg = explode("~", $MessageArray[$i]);
-						$ExistingProductNum[] = $CurrMsg[4];
+						$ExistingProductNum[] = $CurrMsg[0];
 						}
 					}
 					
 					//If they product numbers match, do not save and empty the productNo variable
 					if (in_array($productNo, $ExistingProductNum))
 					{
-						echo "<p> The product number you have entered already exists!<br />\n";
-						echo "Please enter another product number</p>";
+						$errorMessage = "Product number already exists, please choose another.";
 						$productNo = "";
+
 					}
 					
 					else
 					{
-						$listingInfo = "$productNo~$firstName~$lastName~$contactNum~$email~$listingName~$brand~$size~$condition~$price~$description\n";
+						$listingInfo = "$productNo~$firstName~$lastName~$contactNum~$email~$listingName~$brand~$colour~$shoeType~$size~$condition~$price~$description\n";
 						$shoeSalesFile = fopen($shoeListingsFile, "ab");// opens file for writing only and places the pointer at the end
 						if ($shoeSalesFile === FALSE)
 						{
-							echo "There was an error saving your listing\n";
+							$errorMessage = "There was an error saving your listing";
 						}
 						
 						else {
 							// Writes into shoeSalesFile, the listingInfo
 							fwrite ($shoeSalesFile, $listingInfo);
 							fclose($shoeSalesFile);
-							echo "Listing Created!\n";
+							$errorMessage = "Sucess!";
 							
 							//Resets values
 							$firstName = "";
@@ -112,6 +122,8 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 							$condition = "";
 							$price = "";
 							$description = "";
+							$colour = "";
+							$shoeType = "";
 						}
 					}
 			}
@@ -128,6 +140,8 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 							$condition = "";
 							$price = "";
 							$description = "";
+							$colour = "";
+							$shoeType = "";
 					}
 			?>
 		
@@ -137,20 +151,44 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		<header class="head">
 			<p class="piAndsi"> Personal Information </p>
 		</header>
-			<p>First Name: <input type="text" name="fName" value="<?php echo $firstName; ?>" /></p>
-			<p>Last Name: <input type="text" name="lName" value="<?php echo $lastName; ?>" /></p>
-			<p>Contact Number: <input type="text" name="contactNum" value="<?php echo $contactNum; ?>" /></p>
-			<p>Email: <input type="email" name="email" value="<?php echo $email; ?>" /></p>
+			<p>First Name: <input type="text" name="fName" required value="<?php echo $firstName;?>" /> </p>
+			<p>Last Name: <input type="text" name="lName" required value="<?php echo $lastName; ?>" /> </p>
+			<p>Contact Number: <input type="text" name="contactNum" placeholder="XXXX XXXX" pattern="[6,8,9]{1}[0-9]{7}" title="Please enter a valid 8 digit number" required value="<?php echo $contactNum; ?>" /> </p>
+			<p>Email: <input type="email" name="email" placeholder="example@example.com" required value="<?php echo $email; ?>" /> </p>
 		<header class="head">
 			<p class="piAndsi"> Shoe Information </p>
 		</header>
-			<p>Product No: <input type="text" name="productNo" value="<?php echo $productNo; ?>" /></p>
-			<p>Lisiting Name: <input type="text" name="listingName" value="<?php echo $listingName; ?>" /></p>
-			<p>Brand: <input type="text" name="brand" value="<?php echo $brand; ?>" /></p>
+			<p>Product No: <input type="text" name="productNo" placeholder="3 Letters (e.g Abc)" pattern="[a-z,A-Z]{3}" title="Please enter 3 letters" required value="<?php echo $productNo; ?>" /> </p>
+			<p>Lisiting Name: <input type="text" name="listingName" required value="<?php echo $listingName; ?>" /> </p>
+			<p>Brand: <input type="text" name="brand" required value="<?php echo $brand; ?>" /> </p>
+			
+		<p>Colour:
+		<select name="shoeColourSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+			<option option selected="true" disabled="disabled" value="">Select</option>
+			<option value="Black">Black</option>
+			<option value="White">White</option>
+			<option value="Red">Red</option>
+			<option value="Blue">Blue</option>
+			<option value="Green">Green</option>
+			<option value="Yellow">Yellow</option>
+			<option value="Others">Others</option>
+		</select>
+		</p>
+			
+		<p>Shoe Type:
+		<select name="shoeTypeSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+			<option option selected="true" disabled="disabled" value="">Select</option>
+			<option value="Sports">Sports</option>
+			<option value="Hiking">Hiking</option>
+			<option value="Casual">Casual</option>
+			<option value="Boots">Boots</option>
+			<option value="Others">Others</option>
+		</select>
+		</p>
 		
 		<p>Size:
-		<select name="sizeSelection">
-			<option value="Select">Select</option>
+		<select name="sizeSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+			<option option selected="true" disabled="disabled" value="">Select</option>
 			<option value="US6">US 6</option>
 			<option value="US7">US 7</option>
 			<option value="US8">US 8</option>
@@ -165,8 +203,8 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		</p>
 		
 		<p>Condition:
-		<select name="conditionSelection">
-			<option value="Select">Select</option>
+		<select name="conditionSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+			<option option selected="true" disabled="disabled" value="">Select</option>
 			<option value="Brand New">Brand New</option>
 			<option value="Almost New">Almost New</option>
 			<option value="Used">Used</option>
@@ -174,15 +212,14 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		</select>
 		</p>
 		
-			<p>Price: <input type="int" name="price" value="<?php echo $price; ?>" /></p>
+			<p>Price: $<input type="int" name="price" pattern="[0-9]*" title="Please enter a number" required value="<?php echo $price; ?>" /> </p>
 				<label for="description">Description: </label>
-				<textarea id="description" name="description" rows="4" cols="50"> 
-				<?php echo $description; ?> 
-				</textarea>
+				<textarea id="description" name="description" required rows="4" cols="50"><?php echo $description;?></textarea><br><br>
 				
 				<!--- Buttons down below --->
 					<input type="reset" value="Reset" />
-					<input type="submit" name="submit" value="Send Form"/>
+					<input type="submit" name="submit" value="Create Listing" /> <br>
+					<p class="bottomMessage"> <?php echo $errorMessage; ?></p>
 				</form>
 			</div>
 		</body>
