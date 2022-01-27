@@ -1,3 +1,18 @@
+<!--
+@file		process_shoe_list.php
+@author		Ng Zhao Dong (ZDNG004@uowmail.edu.au)
+@course		ISIT307
+@group 	    F21-B
+@assignment	1
+@date 		27/1/2021
+@brief	    Process_shoe_list.php page is to process form submitted in shoe_list.php page.
+            Description: Regular expression is used to validate product number entered by user in shoe_list.php
+            page. An error message will be displayed if the validation is invalid.
+
+            Shoe_details.php page matching with the product number submitted by user in a form will be 
+            displayed accordingly.
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,7 +72,8 @@
             }
             else {
                 include 'shoe_list.php';
-                echo "Invalid product number";
+                // echo "Invalid product number";
+                echo "<script>document.getElementById('productnoinputerror').innerHTML='Invalid product number';</script>";
             }
         ?>
     </body>
