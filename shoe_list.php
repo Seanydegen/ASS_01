@@ -58,9 +58,9 @@
 
             foreach($lines as $line){
                 //Deliminter for the array is '~' usibng trim to cut out whitespaces.
-                list($productno,$product_owner_name,$product_owner_contact,$product_owner_email,
-                $productname,$productbrand,$productsize,$productcondition,$productshoetype, $productcolor, 
-                $productprice, $productdesc) 
+                list($productno,$product_owner_first_name,$product_owner_last_name,$product_owner_contact,
+                $product_owner_email,$productname,$productbrand,$productcolor,$productshoetype,$productsize,
+                $productcondition,$productprice,$productdesc) 
                 = array_map('trim',explode('~',$line));
 
                 //Check if array key exist
