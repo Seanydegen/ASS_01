@@ -148,79 +148,81 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 		
 		<div class="listingInfo">
 			<form name="createListing" action="create_listing.php" method="POST">
-		<header class="head">
-			<p class="piAndsi"> Personal Information </p>
-		</header>
-			<p>First Name: <input type="text" name="fName" required  /> </p>
-			<p>Last Name: <input type="text" name="lName" required  /> </p>
-			<p>Contact Number: <input type="text" name="contactNum" placeholder="XXXX XXXX" pattern="[6,8,9]{1}[0-9]{7}" title="Please enter a valid 8 digit number" required  /> </p>
-			<p>Email: <input type="email" name="email" placeholder="example@example.com" required  /> </p>
-		<header class="head">
-			<p class="piAndsi"> Shoe Information </p>
-		</header>
-			<p>Product No: <input type="text" name="productNo" placeholder="3 Letters (e.g Abc)" pattern="[a-z,A-Z]{3}" title="Please enter 3 letters" required value="<?php echo $productNo; ?>" /> </p>
-			<p>Lisiting Name: <input type="text" name="listingName" required  /> </p>
-			<p>Brand: <input type="text" name="brand" required  /> </p>
+			<header class="head">
+				<h2>Personal Information</h2>
+			</header>
+				<p>First Name: <input type="text" name="fName" required  /> </p>
+				<p>Last Name: <input type="text" name="lName" required  /> </p>
+				<p>Contact Number: <input type="text" name="contactNum" placeholder="XXXX XXXX" pattern="[6,8,9]{1}[0-9]{7}" title="Please enter a valid 8 digit number" required  /> </p>
+				<p>Email: <input type="email" name="email" placeholder="example@example.com" required  /> </p>
+				<header class="head">
+				<h2>Shoe Information </h2>
+				</header>
+				<p>Product No: <input type="text" name="productNo" placeholder="3 Letters (e.g Abc)" pattern="[a-z,A-Z]{3}" title="Please enter 3 letters" required value="<?php echo $productNo; ?>" /> </p>
+				<p>Lisiting Name: <input type="text" name="listingName" required  /> </p>
+				<p>Brand: <input type="text" name="brand" required  /> </p>
+				<p>Colour:
+
+				<select name="shoeColourSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+					<option option selected="true" disabled="disabled" value="">Select</option>
+					<option value="Black">Black</option>
+					<option value="White">White</option>
+					<option value="Red">Red</option>
+					<option value="Blue">Blue</option>
+					<option value="Green">Green</option>
+					<option value="Yellow">Yellow</option>
+					<option value="Others">Others</option>
+				</select>
+				</p>
 			
-		<p>Colour:
-		<select name="shoeColourSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
-			<option option selected="true" disabled="disabled" value="">Select</option>
-			<option value="Black">Black</option>
-			<option value="White">White</option>
-			<option value="Red">Red</option>
-			<option value="Blue">Blue</option>
-			<option value="Green">Green</option>
-			<option value="Yellow">Yellow</option>
-			<option value="Others">Others</option>
-		</select>
-		</p>
-			
-		<p>Shoe Type:
-		<select name="shoeTypeSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
-			<option option selected="true" disabled="disabled" value="">Select</option>
-			<option value="Sports">Sports</option>
-			<option value="Hiking">Hiking</option>
-			<option value="Casual">Casual</option>
-			<option value="Boots">Boots</option>
-			<option value="Others">Others</option>
-		</select>
-		</p>
+				<p>Shoe Type:
+				<select name="shoeTypeSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+					<option option selected="true" disabled="disabled" value="">Select</option>
+					<option value="Sports">Sports</option>
+					<option value="Hiking">Hiking</option>
+					<option value="Casual">Casual</option>
+					<option value="Boots">Boots</option>
+					<option value="Others">Others</option>
+				</select>
+				</p>
 		
-		<p>Size:
-		<select name="sizeSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
-			<option option selected="true" disabled="disabled" value="">Select</option>
-			<option value="US6">US 6</option>
-			<option value="US7">US 7</option>
-			<option value="US8">US 8</option>
-			<option value="US9">US 9</option>
-			<option value="US10">US 10</option>
-			<option value="US11">US 11</option>
-			<option value="US12">US 12</option>
-			<option value="US13">US 13</option>
-			<option value="US14">US 14</option>
-			<option value="US15">US 15</option>
-		</select>
-		</p>
+				<p>Size:
+				<select name="sizeSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+					<option option selected="true" disabled="disabled" value="">Select</option>
+					<option value="US6">US 6</option>
+					<option value="US7">US 7</option>
+					<option value="US8">US 8</option>
+					<option value="US9">US 9</option>
+					<option value="US10">US 10</option>
+					<option value="US11">US 11</option>
+					<option value="US12">US 12</option>
+					<option value="US13">US 13</option>
+					<option value="US14">US 14</option>
+					<option value="US15">US 15</option>
+				</select>
+				</p>
 		
-		<p>Condition:
-		<select name="conditionSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
-			<option option selected="true" disabled="disabled" value="">Select</option>
-			<option value="Brand New">Brand New</option>
-			<option value="Almost New">Almost New</option>
-			<option value="Used">Used</option>
-			<option value="Well Used">Well Used</option>
-		</select>
-		</p>
+				<p>Condition:
+				<select name="conditionSelection" required oninvalid="this.setCustomValidity('Please select an option')" oninput="setCustomValidity('')" >
+					<option option selected="true" disabled="disabled" value="">Select</option>
+					<option value="Brand New">Brand New</option>
+					<option value="Almost New">Almost New</option>
+					<option value="Used">Used</option>
+					<option value="Well Used">Well Used</option>
+				</select>
+				</p>
 		
-			<p>Price: $<input type="int" name="price" pattern="[0-9]*" title="Please enter a number" required  /> </p>
-				<label for="description">Description: </label>
-				<textarea id="description" name="description" required rows="4" cols="50"></textarea><br><br>
-				
-				<!--- Buttons down below --->	
-				<input type="reset" value="Reset" />
-				<input type="submit" name="submit" value="Create Listing" /> <br>
-				<p class="bottomMessage"> <?php echo $errorMessage; ?></p>
-				</form>
+					<p>Price: $<input type="int" name="price" pattern="[0-9]*" title="Please enter a number" required  /> </p>
+					<label for="description">Description: </label>
+					<textarea id="description" name="description" required rows="4" cols="50"></textarea><br><br>
+					
+					<!--- Buttons down below --->	
+					<div class="btn">
+						<input type="reset" value="Reset"  />
+						<input type="submit" name="submit" value="Create Listing" /> <br>
+						<p class="bottomMessage"> <?php echo $errorMessage; ?></p>
+						</form>
+					</div>
 			</div>
 		</body>
 		
