@@ -27,7 +27,7 @@
     </head>
     <body>
         <header>
-            <img class="logo" src ="source/images/nav_logo.png" alt="logo">
+            <a href="index.php"><img class="logo" src ="source/images/nav_logo.png" alt="logo"></a>
                 <!------------Nav Bar-------------------->
                 <nav>
                 <ul class ="nav__links">
