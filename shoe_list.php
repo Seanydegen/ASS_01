@@ -31,7 +31,7 @@
                 <!------------Nav Bar-------------------->
                 <nav>
                 <ul class ="nav__links">
-                    <li><a href="shoe_list.php">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="shoe_list.php">View Listings</a></li>
                     <li><a href="create_listing.php">Sell Your Shoes</a></li>
                     <li><a href="#">Contact Us</a></li> 
