@@ -100,8 +100,8 @@
                         foreach($lines as $line){
                             /*Deliminter for the array is '~' usibng trim to cut out whitespaces.
                             List is being used to assign variables into the array.*/
-                            list($productno,$product_owner_name,$product_owner_contact,$product_owner_email,$productname,$productbrand,$productsize,
-                            $productcondition,$productshoetype,$productcolor,$productprice,$productdesc) 
+                            list($productno,$product_owner_Fname,$product_owner_Lname,$product_owner_contact,$product_owner_email,$productname,
+                            $productbrand,$productcolor,$productshoetype,$productsize,$productcondition,$productprice,$productdesc) 
                             = array_map('trim',explode('~',$line));
 
                             //Check if array key exist
@@ -117,15 +117,18 @@
                             }
 
                             //This is where we append the nested array elements.
-                            $product[$productno][] = $product_owner_name;
+                            /*Array Format:productNo - FName - LName - Contact - Email - ProdName - Brand - color - ShoeType
+                            -Size - Condition - Price - Desc*/
+                            $product[$productno][] = $product_owner_Fname;
+                            $product[$productno][] = $product_owner_Lname;
                             $product[$productno][] = $product_owner_contact;
                             $product[$productno][] = $product_owner_email;
                             $product[$productno][] = $productname;
                             $product[$productno][] = $productbrand;
+                            $product[$productno][] = $productcolor;
+                            $product[$productno][] = $productshoetype;
                             $product[$productno][] = $productsize;
                             $product[$productno][] = $productcondition;
-                            $product[$productno][] = $productshoetype;
-                            $product[$productno][] = $productcolor;
                             $product[$productno][] = $productprice;
                             $product[$productno][] = $productdesc;
                         }
@@ -158,22 +161,23 @@
                         $search_details = array();
                         /*Input Data 'productnoinput' is from shoe_list.php using $_POST by the user*/
                         //Test Case
-                        $inputproductNo = "23-01-22-abc";
-                        //$inputproductNo = $_POST['productnoinput'];
+                        //$inputproductNo = "23-01-22-abc";
+                        $inputproductNo = $_POST['productnoinput'];
                         $search_details = search($product,$inputproductNo);
 
                         /*Variables are stored with information from searched productno*/
-                        $product_owner_name = $search_details[$inputproductNo][0];
-                        $product_owner_contact = $search_details[$inputproductNo][1];
-                        $product_owner_email =$search_details[$inputproductNo][2];
-                        $productname = $search_details[$inputproductNo][3];
-                        $productbrand = $search_details[$inputproductNo][4];
-                        $productsize = $search_details[$inputproductNo][5];
-                        $productcondition = $search_details[$inputproductNo][6];
+                        $product_owner_Fname = $search_details[$inputproductNo][0];
+                        $product_owner_Lname = $search_details[$inputproductNo][1];
+                        $product_owner_contact = $search_details[$inputproductNo][2];
+                        $product_owner_email =$search_details[$inputproductNo][3];
+                        $productname = $search_details[$inputproductNo][4];
+                        $productbrand = $search_details[$inputproductNo][5];
+                        $productcolor = $search_details[$inputproductNo][6];
                         $productshoetype = $search_details[$inputproductNo][7];
-                        $productcolor = $search_details[$inputproductNo][8];
-                        $productprice = $search_details[$inputproductNo][9];
-                        $productdesc = $search_details[$inputproductNo][10];
+                        $productsize = $search_details[$inputproductNo][8];
+                        $productcondition = $search_details[$inputproductNo][9];
+                        $productprice = $search_details[$inputproductNo][10];
+                        $productdesc = $search_details[$inputproductNo][11];
                 
                         //Display Variables
                         /*Add product variable here*/
@@ -187,7 +191,7 @@
                         echo "<h4>Description: ". $productdesc ."</h4><br>";
                         echo "<h4>Price (S$): ". "$". $productprice ."</h4><br>";
                         /*Owner's Contact Details */
-                        echo "<h4>Owner's Name: ". $product_owner_name ."</h4><br>";
+                        echo "<h4>Owner's Name: ". $product_owner_Fname." ". $product_owner_Lname ."</h4><br>";
                         echo "<h4>Owner's Contact No: ". $product_owner_contact ."</h4><br>";
                         echo "<h4>Owner's Email: ". $product_owner_email ."</h4><br>";
                         ?>
