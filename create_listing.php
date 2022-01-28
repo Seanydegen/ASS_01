@@ -216,10 +216,10 @@ Then, add the following HTML & PHP codes wherever you see fit. :) -->
 				<label for="description">Description: </label>
 				<textarea id="description" name="description" required rows="4" cols="50"></textarea><br><br>
 				
-				<!--- Buttons down below --->
-					<input type="reset" value="Reset" />
-					<input type="submit" name="submit" value="Create Listing" /> <br>
-					<p class="bottomMessage"> <?php echo $errorMessage; ?></p>
+				<!--- Buttons down below --->	
+				<input type="reset" value="Reset" />
+				<input type="submit" name="submit" value="Create Listing" /> <br>
+				<p class="bottomMessage"> <?php echo $errorMessage; ?></p>
 				</form>
 			</div>
 		</body>
