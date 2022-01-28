@@ -72,20 +72,32 @@ header {
 .list_table table{
     border: 1px solid black;
     width: 80%;
-    border-collapse: collapse;
     text-align: center;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 .list_table th {
     background-color: #30475E;
-    color: #F05454;
+    color: #F5F5F5;
     border: 1px solid black;
     height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 .list_table td {
     border: 1px solid black;
     height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 .product_number_input {
@@ -106,10 +118,11 @@ header {
 
 .product_number_input input[type=text] {
     border: 3px solid black;
-    border-color: #F05454;
+    border-color: #30475E;
     border-radius: 5px;
     width: 225px;
     height: 35px;
+    margin-bottom: 3px;
 }
 
 .product_number_input input[type=submit] {
@@ -120,12 +133,12 @@ header {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 20px;
-    color: #F05454;
+    color: #F5F5F5;
     background-color: #30475E;
 }
 
 /* Error message style */
 .product_number_input span {
-    color: red;
+    color: #F05454;
     font-family: 'Montserrat', sans-serif;
 }
