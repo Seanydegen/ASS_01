@@ -59,16 +59,77 @@ header {
 .expressInterest {
     font-family: 'Montserrat', sans-serif;
 	margin: auto;
-	border: 3px solid grey;
+	border: 3px solid #30475E;
 	padding: 30px;
 	width: 500px;
     clear: both;
+    color: #30475E;
 }
 
 input {
-  height: 20px;
   flex: 0 0 200px;
   margin-left: 10px;
+}
+
+input[type=text]  {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    position: relative;
+    justify-content: left;
+    top: 5px;
+  }
+  
+input[type=email]  {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    position: relative;
+    justify-content: left;
+    top: 5px;
+}
+
+input[type=reset]{
+    background-color:#30475E;
+    color: #F5F5F5;
+    border-radius: 6px;
+    padding: 10px 24px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+input[type=submit]{
+    background-color:#30475E;
+    color: #F5F5F5;
+    border-radius: 6px;
+    padding: 10px 24px;
+    margin-bottom: 10px;
+}
+
+input[type=number]  {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    position: relative;
+    justify-content: left;
+    top: 5px;
+}
+
+
+input[type=reset]:hover{
+    background-color:#F05454;
+}
+
+input[type=submit]:hover{
+    background-color:#F05454;
 }
 
 h1 {
