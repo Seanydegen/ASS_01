@@ -60,28 +60,109 @@ header {
     font-family: 'Montserrat', sans-serif;
 	margin: auto;
 	width: 40%;
-	border: 3px solid grey;
-	padding: 10px;
-	
+    height: auto;
+	border: 3px solid #30475E;
+    color: #30475E;
+    background-color: #F5F5F5;
 }
 
-input {
+.listingInfo h2{
+    margin-left: -50px;
+}
+
+input[type=text]  {
   height: 20px;
   flex: 0 0 200px;
   margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px 10px;
+  border-radius: 6px;
+  position: relative;
+  justify-content: left;
+  top: 5px;
 }
 
-.piAndsi {
+input[type=email]  {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    position: relative;
+    justify-content: left;
+    top: 5px;
+  }
+
+input[type=int]  {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    position: relative;
+    justify-content: left;
+    top: 5px;
+  }
+
+input .p{
+    color: #30475E;
+}
+
+select{
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 2px 20px;
+    border-radius: 6px;
+}
+
+label{
+    margin-left: 30px;
+    padding: 7px 20px;
+}
+
+textarea{
+    padding: 5px 20px;
+    border-radius: 6px;
+}
+
+input[type=reset]{
+    background-color:#30475E;
+    color: #F5F5F5;
+    border-radius: 6px;
+    padding: 10px 24px;
+    margin-left: 400px;
+    margin-bottom: 10px;
+}
+input[type=submit]{
+    background-color:#30475E;
+    color: #F5F5F5;
+    border-radius: 6px;
+    padding: 10px 24px;
+    margin-bottom: 10px;
+}
+
+input[type=reset]:hover{
+    background-color:#F05454;
+}
+
+input[type=submit]:hover{
+    background-color:#F05454;
+}
+
+.piAndsi .p{
 	font-weight: bold;
-	margin-left: -40px;
+	margin-right: 40px;
 }
 
 p {
-	margin-left: 35px;
+	margin-left: 50px;
 }
 
 .errorMessage {
-	color: #FF0000;
+	color: red;
 }
 
 .tryErrorMessage{
@@ -90,3 +171,6 @@ p {
 	margin-left:500px;
 }
 
+.bottomMessage {
+	color: red;
+}

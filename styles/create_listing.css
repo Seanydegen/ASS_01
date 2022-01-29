@@ -162,7 +162,8 @@ p {
 }
 
 .errorMessage {
-	color: #FF0000;
+	color: red;
+	
 }
 
 .tryErrorMessage{

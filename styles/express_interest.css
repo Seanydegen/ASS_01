@@ -61,7 +61,7 @@ header {
 	margin: auto;
 	border: 3px solid #30475E;
 	padding: 30px;
-	width: 500px;
+	width: 800px;
     clear: both;
     color: #30475E;
 }
@@ -145,4 +145,8 @@ p {
   width: 100%;
   clear: both;
   padding-bottom: 15px;
+}
+
+.errorMessage {
+	color: red;
 }
