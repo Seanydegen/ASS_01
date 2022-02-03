@@ -2,7 +2,7 @@
 @file		shoe_list.php
 @author		Ng Zhao Dong (ZDNG004@uowmail.edu.au)
 @course		ISIT307
-@group 	    F21-B
+@group 	    G2 - T27
 @assignment	1
 @date 		26/1/2021
 @brief	    Shoe_list.php page is to display brief information of all listings on Shoes Fever website.

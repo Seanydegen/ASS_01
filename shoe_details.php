@@ -2,7 +2,7 @@
 @file		shoe_details.php
 @author		Sean Yeo Degen (SDY459@uowmail.edu.au)
 @course		ISIT307
-@group 	    F21-B
+@group 	    G2 - T27
 @assignment	1
 @date 		22/1/2021
 @brief	    Shoe_details.php page is to display the information of the shoes selected by

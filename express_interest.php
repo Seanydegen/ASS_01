@@ -1,5 +1,13 @@
-<!--Please note that this is just a template for the Navigation Bar and Logo. Please make another copy of this file and rename it. 
-Then, add the following HTML & PHP codes wherever you see fit. :) -->
+<!--
+@file		express_interest.php
+@author		Brandon Wong (kybw974@uowmail.edu.au)
+@course		ISIT307
+@group 	    G2 - T27
+@assignment	1
+@date 		26/1/2021
+@brief	    express_interest is redirected from the shoe_details.php page. This is where the user fills up
+			the form to express interest in the particular shoe. Information will be stored in ExpInterest.txt.
+-->
 <!DOCTYPE html>
 <html>
 	<head>

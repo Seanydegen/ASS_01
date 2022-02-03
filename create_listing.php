@@ -1,5 +1,14 @@
-<!--Please note that this is just a template for the Navigation Bar and Logo. Please make another copy of this file and rename it. 
-Then, add the following HTML & PHP codes wherever you see fit. :) -->
+<!--
+@file		create_listing.php
+@author		Brandon Wong (kybw974@uowmail.edu.au)
+@course		ISIT307
+@group 	    G2 - T27
+@assignment	1
+@date 		26/1/2021
+@brief	    create_listing.php is where the user enters a form. The form consist of personal informatrion of the seller
+			and the information of the shoe. Compulsory fields and a check to make sure that the user enters the correct
+			information in the form. Information will be stored in ShoeSale.txt
+-->
 <!DOCTYPE html>
 <html>
 	<head>

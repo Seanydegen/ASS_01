@@ -2,7 +2,7 @@
 @file		process_shoe_list.php
 @author		Ng Zhao Dong (ZDNG004@uowmail.edu.au)
 @course		ISIT307
-@group 	    F21-B
+@group 	    G2 - T27
 @assignment	1
 @date 		27/1/2021
 @brief	    Process_shoe_list.php page is to process form submitted in shoe_list.php page.

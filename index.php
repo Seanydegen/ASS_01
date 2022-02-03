@@ -1,5 +1,13 @@
-<!--Please note that this is just a template for the Navigation Bar and Logo. Please make another copy of this file and rename it. 
-Then, add the following HTML & PHP codes wherever you see fit. :) -->
+<!--
+@file		index.php
+@author		Sean Yeo Degen (SDY459@uowmail.edu.au)
+@course		ISIT307
+@group 	    G2 - T27
+@assignment	1
+@date 		30/1/2021
+@brief	    index.php is the landing page where users will first arrive in the website. There will be 2 buttons provided for the user
+            to decide whether they would want to view the listings of the shoe or choose to sell a pair of their shoes.
+-->
 <!DOCTYPE html>
 <html>
     <head>
